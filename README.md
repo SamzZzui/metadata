@@ -41,7 +41,7 @@ pkg install termux-api
 
 
 
-git clone https://github.com/YOUR-USERNAME/termux-image-metadata-tool.git
+git clone https://github.com/princtest/termux-image-metadata-tool.git
 cd termux-image-metadata-tool
 
 2. Make the script executable:
