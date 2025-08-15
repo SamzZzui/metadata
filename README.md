@@ -48,7 +48,9 @@ You will be presented with an interactive menu:
 
 Run the script in Termux:
 
+
 ========= MENU =========
+
 1. 🔎 Pick from 'sample_images' (quick)
 2. 📂 Enter image path (manual)
 3. Basic File Info
