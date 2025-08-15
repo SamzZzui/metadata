@@ -44,6 +44,8 @@ You will be presented with an interactive menu:
 
 # ▶️ Usage
 
+You will be presented with an interactive menu:
+
 Run the script in Termux:
 
 ========= MENU =========
@@ -66,36 +68,40 @@ Run the script in Termux:
 17. Exit
 ========================
 
-
-```bash
-pkg update && pkg upgrade
-pkg install bash
-pkg install exiftool
-pkg install termux-api
-
 ---
 
 # 🔧 Installation
 
 1. Clone the repository:
 
+apt update - y&& apt upgrade - y
+
+```
 git clone https://github.com/princtest/termux-image-metadata-tool.git
+```
+
 cd termux-image-metadata-tool
 
 2. Make the script executable:
-
-pkg update && pkg upgrade
-
-pkg install bash
-
-pkg install exiftool
-
-pkg install termux-api
-
+```
 chmod +x image_metadata_tool.sh
+```
 
-
----
+```
+pkg install exiftool
+```
+```
+pkg install bash
+```
+```
+pkg install termux-api
+```
+```
+chmod +x image_metadata_tool.sh
+```
+```
+./image_metadata_tool.sh
+```
 
 
 ---
