@@ -1,4 +1,4 @@
-# 📸 Termux Image Metadata Tool v2
+# 📸 Termux Image Metadata Tool v3
 
 A powerful **Bash-based image metadata extraction tool** designed for **Termux** users.  
 Easily extract, view, and manage metadata from image files — including camera info, GPS location, exposure details, and more.  
@@ -107,7 +107,8 @@ chmod +x image_metadata_tool.sh
 
 ```
 /sdcard/DCIM/Camera/image1.jpg
-
+```
+```
 /sdcard/DCIM/Camera
 '''
 
