@@ -1,3 +1,7 @@
+<p align="center">
+  <sub>Design by <strong>SamzZzui</strong></sub>
+</p>
+
 # 📸 Termux Image Metadata Tool v3
 
 <p align="center">
