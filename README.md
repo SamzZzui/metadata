@@ -79,9 +79,9 @@ apt update - y&& apt upgrade - y
 ```
 git clone https://github.com/SamzZzui/metadata.git
 ```
-
+```
 cd termux-image-metadata-tool
-
+```
 2. Make the script executable:
 ```
 chmod +x image_metadata_tool.sh
