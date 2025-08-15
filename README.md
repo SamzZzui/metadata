@@ -1,15 +1,10 @@
 # 📸 Termux Image Metadata Tool v3
 
 <p align="center">
-A powerful <b>Bash-based image metadata extraction & analysis tool</b> for <b>Termux</b>.<br>
+A powerful Bash-based image metadata extraction tool designed for **Termux** users</b> for <b>Termux</b>.<br>
 Easily view, manage, and remove EXIF metadata — plus GPS location, camera details, and reverse image search.<br>
 <b>Quick Pick Mode</b> from <code>sample_images/</code> included!
-</p>
-
-<p align="center">
-A powerful <b>Bash-based image metadata extraction & analysis tool</b> for <b>Termux</b>.<br>
-A powerful **Bash-based image metadata extraction tool** designed for **Termux** users.  
-Easily extract, view, and manage metadata from image files — including camera info, GPS location, exposure details, and more.  
+</p>  
 Supports **metadata removal**, **thumbnail extraction**, and **reverse image search** via Google Lens, TinEye, and Yandex.
 
 ---
