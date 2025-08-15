@@ -77,7 +77,7 @@ Run the script in Termux:
 apt update - y&& apt upgrade - y
 
 ```
-git clone https://github.com/princtest/termux-image-metadata-tool.git
+git clone https://github.com/SamzZzui/metadata.git
 ```
 
 cd termux-image-metadata-tool
