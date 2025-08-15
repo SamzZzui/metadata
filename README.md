@@ -73,9 +73,9 @@ Run the script in Termux:
 # 🔧 Installation
 
 1. Clone the repository:
-
+```
 apt update - y&& apt upgrade - y
-
+```
 ```
 git clone https://github.com/SamzZzui/metadata.git
 ```
