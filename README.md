@@ -49,23 +49,25 @@ You will be presented with an interactive menu:
 Run the script in Termux:
 
 ========= MENU =========
-1. Basic File Info
-2. Camera Info
-3. GPS Location
-4. Date & Time
-5. Software Info
-6. All Metadata
-7. Remove Metadata
-8. Export Metadata to text file
-9. Check for Editing Software
-10. Extract Thumbnail
-11. Orientation Info
-12. Flash Info
-13. Lens Info
-14. Search Image Origin (Google Lens / TinEye / Yandex)
-15. Color Space Info
-16. Exposure Info
-17. Exit
+    1. 🔎 Pick from 'sample_images' (quick)
+    2. 📂 Enter image path (manual)
+    3. Basic File Info
+    4. Camera Info
+    5. GPS Location
+    6. Date & Time
+    7. Software Info
+    8. All Metadata
+    9. Remove Metadata
+    10. Export Metadata to text file
+    11. Check for Editing Software
+    12. Extract Thumbnail
+    13. Orientation Info
+    14. Flash Info
+    15. Lens Info
+    16. Search Image Origin (Google Lens / TinEye / Yandex)
+    17. Color Space Info
+    18. Exposure Info
+    19. Exit
 ========================
 
 ---
@@ -103,7 +105,13 @@ chmod +x image_metadata_tool.sh
 ./image_metadata_tool.sh
 ```
 
-## Example paths:
+## Menu Example:
+
+1. 🔎 Pick from 'sample_images' (quick)
+2. 📂 Enter image path (manual)
+3. Basic File Info
+4. Camera Info.
+
 
 ```
 /sdcard/DCIM/Camera/image1.jpg
@@ -127,6 +135,18 @@ For major changes, please open an issue first to discuss what you would like to 
 
 ---
 
+# 🛡️ License
+
+This project is licensed under the MIT License.
+Feel free to modify and use it, but please give credit to SamzZzui.
+
+
+---
+
 # 📬 Contact
 
-For issues or suggestions, open a GitHub issue in this repository.
+Author: SamzZzui
+
+For any issues, open a GitHub issue in the repository.
+
+
