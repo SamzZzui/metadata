@@ -158,3 +158,8 @@ Feel free to modify and use it, but please give credit to SamzZzui.
 
 🐛 For issues, open a GitHub Issue in the repository.
 
+
+
+<p align="center">
+  <sub>Design by <strong>SamzZzui</strong></sub>
+</p>
