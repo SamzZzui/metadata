@@ -147,8 +147,7 @@ Feel free to modify and use it, but please give credit to SamzZzui.
 
 # 📬 Contact
 
-Author: SamzZzui
+👤 Author: SamzZzui
 
-For any issues, open a GitHub issue in the repository.
-
+🐛 For issues, open a GitHub Issue in the repository.
 
