@@ -1,5 +1,5 @@
 #!/bin/bash
-# Termux Polished v5 - Image Metadata Tool (Auto File/Folder Mode)
+# Termux Polished v1 - Image Metadata Tool (Auto File/Folder Mode)
 
 clear
 echo "=============================================="
