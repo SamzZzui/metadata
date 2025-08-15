@@ -68,6 +68,7 @@ Run the script in Termux:
 17. Color Space Info
 18. Exposure Info
 19. Exit
+
 ========================
 ---
 
