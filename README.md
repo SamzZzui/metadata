@@ -104,10 +104,12 @@ chmod +x image_metadata_tool.sh
 ```
 
 # Example paths:
+
 '''
 /sdcard/DCIM/Camera/image1.jpg
 /sdcard/DCIM/Camera
 '''
+
 # 📂 Sample Images
 
 Use the sample_images/ folder for quick testing.
