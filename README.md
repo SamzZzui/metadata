@@ -23,43 +23,28 @@ Supports **metadata removal**, **thumbnail extraction**, and **reverse image sea
 
 ---
 
+# 🌐 Reverse Image Search
+
+Option 14 allows you to open:
+
+Google Lens
+
+TinEye
+
+Yandex Image Search
+
+
+Note: This requires termux-api.
+
 ## 📦 Requirements
 
 Make sure you have **Termux** installed and updated.
 
-```bash
-pkg update && pkg upgrade
-pkg install bash
-pkg install exiftool
-pkg install termux-api
+You will be presented with an interactive menu:
 
----
-
-🔧 Installation
-
-1. Clone the repository:
-
-
-
-git clone https://github.com/princtest/termux-image-metadata-tool.git
-cd termux-image-metadata-tool
-
-2. Make the script executable:
-
-
-
-chmod +x image_metadata_tool.sh
-
-
----
-
-▶️ Usage
+# ▶️ Usage
 
 Run the script in Termux:
-
-./image_metadata_tool.sh
-
-You will be presented with an interactive menu:
 
 ========= MENU =========
 1. Basic File Info
@@ -82,52 +67,40 @@ You will be presented with an interactive menu:
 ========================
 
 
----
-
-🌐 Reverse Image Search
-
-Option 14 allows you to open:
-
-Google Lens
-
-TinEye
-
-Yandex Image Search
-
-
-Note: This requires termux-api.
-
+```bash
+pkg update && pkg upgrade
+pkg install bash
+pkg install exiftool
+pkg install termux-api
 
 ---
 
-🛡 License
+# 🔧 Installation
 
-MIT License
+1. Clone the repository:
 
-Copyright (c) 2025 PRINCTEST 
+git clone https://github.com/princtest/termux-image-metadata-tool.git
+cd termux-image-metadata-tool
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+2. Make the script executable:
 
-[... MIT License
+pkg update && pkg upgrade
 
-Copyright (c) 2025 PRINCTEST 
+pkg install bash
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+pkg install exiftool
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+pkg install termux-api
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. ...]
+chmod +x image_metadata_tool.sh
 
 
 ---
 
 
-🤝 Contributing
+---
+
+# 🤝 Contributing
 
 Pull requests are welcome!
 For major changes, please open an issue first to discuss what you would like to change.
@@ -135,6 +108,6 @@ For major changes, please open an issue first to discuss what you would like to 
 
 ---
 
-📬 Contact
+# 📬 Contact
 
 For issues or suggestions, open a GitHub issue in this repository.
