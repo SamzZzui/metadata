@@ -105,8 +105,9 @@ chmod +x image_metadata_tool.sh
 
 # Example paths:
 
-'''
+```
 /sdcard/DCIM/Camera/image1.jpg
+
 /sdcard/DCIM/Camera
 '''
 
