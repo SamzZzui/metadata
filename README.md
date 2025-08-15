@@ -111,7 +111,7 @@ chmod +x image_metadata_tool.sh
 
 ```
 /sdcard/DCIM/Camera
-'''
+```
 
 ## 📂 Sample Images
 
