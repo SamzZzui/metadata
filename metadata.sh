@@ -1,85 +1,107 @@
 #!/bin/bash
-# 📸 Termux Image Metadata Tool - v2 (File + Folder Mode)
+# Termux Polished v3 - Image Metadata Tool
 
+# Banner
 clear
 echo "=============================================="
-echo "   📸 Termux Image Metadata Tool - v2"
+echo "   📸 Termux Image Metadata Tool - v3"
 echo "=============================================="
 echo
 
-# Check dependencies
+# Dependencies check
 command -v exiftool >/dev/null 2>&1 || { echo "❌ exiftool missing! Install: pkg install exiftool"; exit 1; }
 command -v termux-open-url >/dev/null 2>&1 || echo "⚠️ termux-api missing! Install: pkg install termux-api"
 
-# Function: get file or folder
-get_target_path() {
-    echo -n "📂 Enter file or folder path: "
-    read target
-    if [ -z "$target" ]; then
-        echo "❌ No path entered!"
+SAMPLE_DIR="sample_images"
+
+# Function to pick image from sample_images folder
+pick_from_sample() {
+    if [ ! -d "$SAMPLE_DIR" ]; then
+        echo "❌ '$SAMPLE_DIR' folder not found!"
         return 1
-    elif [ ! -e "$target" ]; then
-        echo "❌ Path not found: $target"
+    fi
+
+    echo "📂 Available images in '$SAMPLE_DIR':"
+    files=("$SAMPLE_DIR"/*)
+    if [ ${#files[@]} -eq 0 ]; then
+        echo "❌ No images found in '$SAMPLE_DIR'"
+        return 1
+    fi
+
+    select img in "${files[@]}"; do
+        if [ -n "$img" ]; then
+            image_file="$img"
+            return 0
+        else
+            echo "❌ Invalid selection!"
+        fi
+    done
+}
+
+# Function to prompt for image file manually
+get_image_file() {
+    echo -n "📂 Enter image file path: "
+    read image_file
+    if [ -z "$image_file" ]; then
+        echo "❌ No file entered!"
+        return 1
+    elif [ ! -f "$image_file" ]; then
+        echo "❌ File not found: $image_file"
         return 1
     fi
     return 0
-}
-
-# Function: process folder
-process_folder() {
-    for img in "$1"/*.{jpg,jpeg,png,JPG,JPEG,PNG}; do
-        [ -f "$img" ] || continue
-        echo "🔍 Processing: $img"
-        exiftool "$img" | grep -iE "$2"
-    done
 }
 
 # Menu loop
 while true; do
     echo
     echo "========= MENU ========="
-    echo "1. Basic File Info"
-    echo "2. Camera Info"
-    echo "3. GPS Location"
-    echo "4. Date & Time"
-    echo "5. Software Info"
-    echo "6. All Metadata"
-    echo "7. Remove Metadata"
-    echo "8. Export Metadata to text file"
-    echo "9. Check for Editing Software"
-    echo "10. Extract Thumbnail"
-    echo "11. Orientation Info"
-    echo "12. Flash Info"
-    echo "13. Lens Info"
-    echo "14. Search Image Origin (Google Lens / TinEye / Yandex)"
-    echo "15. Color Space Info"
-    echo "16. Exposure Info"
-    echo "17. Exit"
+    echo "1. 🔎 Pick from 'sample_images' (quick)"
+    echo "2. 📂 Enter image path (manual)"
+    echo "3. Basic File Info"
+    echo "4. Camera Info"
+    echo "5. GPS Location"
+    echo "6. Date & Time"
+    echo "7. Software Info"
+    echo "8. All Metadata"
+    echo "9. Remove Metadata"
+    echo "10. Export Metadata to text file"
+    echo "11. Check for Editing Software"
+    echo "12. Extract Thumbnail"
+    echo "13. Orientation Info"
+    echo "14. Flash Info"
+    echo "15. Lens Info"
+    echo "16. Search Image Origin (Google Lens / TinEye / Yandex)"
+    echo "17. Color Space Info"
+    echo "18. Exposure Info"
+    echo "19. Exit"
     echo "========================"
     echo -n "Select option: "
     read choice
 
     case $choice in
-        1) get_target_path && { [ -d "$target" ] && process_folder "$target" "File Name|File Size|File Type|Create Date|Modify Date" || exiftool "$target" | grep -iE "File Name|File Size|File Type|Create Date|Modify Date"; };;
-        2) get_target_path && { [ -d "$target" ] && process_folder "$target" "Camera Model|Make|Model|Lens" || exiftool "$target" | grep -iE "Camera Model|Make|Model|Lens"; };;
-        3) get_target_path && { [ -d "$target" ] && process_folder "$target" "GPS Latitude|GPS Longitude" || exiftool "$target" | grep -iE "GPS Latitude|GPS Longitude"; };;
-        4) get_target_path && { [ -d "$target" ] && process_folder "$target" "Create Date|Modify Date|Date/Time Original" || exiftool "$target" | grep -iE "Create Date|Modify Date|Date/Time Original"; };;
-        5) get_target_path && { [ -d "$target" ] && process_folder "$target" "Software" || exiftool "$target" | grep -iE "Software"; };;
-        6) get_target_path && { [ -d "$target" ] && process_folder "$target" "." || exiftool "$target"; };;
-        7) get_target_path && { [ -d "$target" ] && find "$target" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) -exec exiftool -all= {} \; || exiftool -all= "$target"; echo "✅ Metadata removed!"; };;
-        8) get_target_path && { [ -d "$target" ] && process_folder "$target" "." > metadata.txt || exiftool "$target" > metadata.txt; echo "✅ Saved to metadata.txt"; };;
-        9) get_target_path && { [ -d "$target" ] && process_folder "$target" "Software|Processing" || exiftool "$target" | grep -iE "Software|Processing"; };;
-        10) get_target_path && { [ -d "$target" ] && for img in "$target"/*.{jpg,jpeg,JPG,JPEG}; do [ -f "$img" ] && exiftool -b -ThumbnailImage "$img" > "${img%.*}_thumbnail.jpg"; done || exiftool -b -ThumbnailImage "$target" > thumbnail.jpg; echo "✅ Thumbnails extracted"; };;
-        11) get_target_path && { [ -d "$target" ] && process_folder "$target" "Orientation" || exiftool "$target" | grep -iE "Orientation"; };;
-        12) get_target_path && { [ -d "$target" ] && process_folder "$target" "Flash" || exiftool "$target" | grep -iE "Flash"; };;
-        13) get_target_path && { [ -d "$target" ] && process_folder "$target" "Lens" || exiftool "$target" | grep -iE "Lens"; };;
-        14) echo "🌐 Opening search engines..."
+        1) pick_from_sample ;;
+        2) get_image_file ;;
+        3) [ -n "$image_file" ] && exiftool "$image_file" | grep -iE "File Name|File Size|File Type|Create Date|Modify Date" ;;
+        4) [ -n "$image_file" ] && exiftool "$image_file" | grep -iE "Camera Model|Make|Model|Lens" ;;
+        5) [ -n "$image_file" ] && exiftool "$image_file" | grep -iE "GPS Latitude|GPS Longitude" ;;
+        6) [ -n "$image_file" ] && exiftool "$image_file" | grep -iE "Create Date|Modify Date|Date/Time Original" ;;
+        7) [ -n "$image_file" ] && exiftool "$image_file" | grep -iE "Software" ;;
+        8) [ -n "$image_file" ] && exiftool "$image_file" ;;
+        9) [ -n "$image_file" ] && exiftool -all= "$image_file" && echo "✅ Metadata removed!" ;;
+        10) [ -n "$image_file" ] && exiftool "$image_file" > metadata.txt && echo "✅ Saved to metadata.txt" ;;
+        11) [ -n "$image_file" ] && exiftool "$image_file" | grep -iE "Software|Processing" ;;
+        12) [ -n "$image_file" ] && exiftool -b -ThumbnailImage "$image_file" > thumbnail.jpg && echo "✅ Thumbnail saved as thumbnail.jpg" ;;
+        13) [ -n "$image_file" ] && exiftool "$image_file" | grep -iE "Orientation" ;;
+        14) [ -n "$image_file" ] && exiftool "$image_file" | grep -iE "Flash" ;;
+        15) [ -n "$image_file" ] && exiftool "$image_file" | grep -iE "Lens" ;;
+        16) echo "🌐 Opening search engines..."
             termux-open-url "https://lens.google.com/uploadbyurl"
             termux-open-url "https://tineye.com"
-            termux-open-url "https://yandex.com/images/search";;
-        15) get_target_path && { [ -d "$target" ] && process_folder "$target" "Color Space" || exiftool "$target" | grep -iE "Color Space"; };;
-        16) get_target_path && { [ -d "$target" ] && process_folder "$target" "Exposure" || exiftool "$target" | grep -iE "Exposure"; };;
-        17) echo "👋 Exiting..."; exit 0;;
+            termux-open-url "https://yandex.com/images/search" ;;
+        17) [ -n "$image_file" ] && exiftool "$image_file" | grep -iE "Color Space" ;;
+        18) [ -n "$image_file" ] && exiftool "$image_file" | grep -iE "Exposure" ;;
+        19) echo "👋 Exiting..."; exit 0 ;;
         *) echo "❌ Invalid option";;
     esac
 done
